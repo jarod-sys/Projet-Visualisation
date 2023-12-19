@@ -36,6 +36,22 @@ def extract_period_from_time(time:pd.Series, year_min,year_max, month_min,month_
         if mask[i]:times.append(time.loc[i].time().strftime("%H:%M:%S"))
     return mask,times
 
+def convert_float_to_str(number:Any=None)->str:
+    if type(number)==float or type(number)==int:
+        chaine=str(number)
+    elif type(number)==str:
+        chaine=number
+    else:
+        raise NotImplemented
+    return chaine
+
+
+def dfFloat_to_dfStr(df:Any=None)->pd.DataFrame:
+    for col in list(df.columns):
+        df[col]=df[col].apply(convert_float_to_str)
+    return df
+
+
 def convert_str_to_float(chaine:str=None)->int:
     if type(chaine)==str:
         if chaine=="Missing" or chaine=="Missing":
@@ -56,7 +72,6 @@ def remove_whitespace(x):
 def fill_missing_value(data=None):
     for col in list(data.columns):
         data=find_missing_values_per_attribut(data=data,attribut=col)
-    data.describe()
     return data
 
 def find_missing_values_per_attribut(data=None,attribut=None):

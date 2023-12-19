@@ -1,4 +1,5 @@
 # Projet-Visualisation
+
 Les océans et les plages, vastes et mystérieux, sont le théâtre d’une diversité d’expériences de rencontres
 et, parfois, de confrontations imprévues. Parmi ces défis, les attaques de requins ont toujours captivé l’imagi-
 nation collective. évoquant à la fois fascination et appréhension. Au coeur de cette complexité, notre projet

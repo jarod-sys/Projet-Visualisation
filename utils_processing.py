@@ -23,7 +23,7 @@ from typing import Dict,List,Any
 
 
 def convert_float_to_str(number:Any=None)->str:
-    if type(number)==float:
+    if type(number)==float or type(number)==int:
         chaine=str(number)
     elif type(number)==str:
         chaine=number
@@ -33,9 +33,10 @@ def convert_float_to_str(number:Any=None)->str:
 
 
 def dfFloat_to_dfStr(df:Any=None)->pd.DataFrame:
-    for col in df:
+    for col in list(df.columns):
         df[col]=df[col].apply(convert_float_to_str)
     return df
+
 
 
 
