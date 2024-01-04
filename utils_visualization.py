@@ -317,7 +317,7 @@ def get_hours(Month: pd.Series, Year: pd.Series, Day: pd.Series, Time_in_second:
     heure: Dict[int, Any] = dict()
 
     for v, second in Time_in_second.items():
-        if second != "Missing":
+        if second != "Missing" and second != '<' and second != '>':
             if type(second) == int:
 
                 try:
@@ -339,7 +339,7 @@ def get_hours(Month: pd.Series, Year: pd.Series, Day: pd.Series, Time_in_second:
 
 def filter_tyte_TimeStamp(data:pd.DataFrame,*args)->pd.DataFrame:
     count:int=0
-    for time in data.Hours:
+    for time in data.Time:
         if  type(time)!=datetime:
             data=data.drop(index=count)
         count+=1
